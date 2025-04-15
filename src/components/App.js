@@ -16,9 +16,16 @@ function App() {
     setTasks([...tasks, newTask]);
   }
 
-  function handleDeleteTask(taskToDelete) {
-    setTasks(tasks.filter((task) => task !== taskToDelete));
-  }
+ const handleDeleteTask = (taskToDelete) => {
+   setTasks(
+     tasks.filter(
+       (task) =>
+         task.text !== taskToDelete.text ||
+         task.category !== taskToDelete.category
+     )
+   );
+ };
+
 
   return (
     <div className="App">
